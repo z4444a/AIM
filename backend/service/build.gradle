@@ -1,0 +1,31 @@
+dependencies {
+  implementation "org.apache.commons:commons-lang3:$commons_lang3_ver"
+  implementation "javax.validation:validation-api:$javax_validation_ver"
+  implementation "org.springframework:spring-tx:$spring_ver"
+
+  implementation "org.mapstruct:mapstruct:$mapstruct_ver"
+  annotationProcessor "org.mapstruct:mapstruct-processor:$mapstruct_ver"
+
+  implementation "com.fasterxml.jackson.core:jackson-annotations:$jackson_ver"
+  implementation "com.fasterxml.jackson.core:jackson-databind:$jackson_ver"
+  implementation "com.fasterxml.jackson.core:jackson-core:$jackson_ver"
+  implementation "org.springframework:spring-web:$spring_ver"
+  implementation "org.springframework.boot:spring-boot:$springboot_ver"
+
+  implementation "com.sun.mail:javax.mail:$javax_mail_ver"
+
+  implementation "org.freemarker:freemarker:$freemarker_ver"
+
+  implementation project(":repository")
+  implementation project(":security")
+
+  testImplementation "org.hibernate.validator:hibernate-validator:6.0.15.Final"
+}
+
+
+compileJava {
+  options.compilerArgs += [
+      '-Amapstruct.defaultComponentModel=spring',
+      '-Amapstruct.unmappedTargetPolicy=ERROR'
+  ]
+}

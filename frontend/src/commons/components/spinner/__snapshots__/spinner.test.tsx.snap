@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Spinner should render correctly 1`] = `
+<div
+  className="la-ball-clip-rotate-multiple la-dark la-2x"
+>
+  <div />
+  <div />
+</div>
+`;

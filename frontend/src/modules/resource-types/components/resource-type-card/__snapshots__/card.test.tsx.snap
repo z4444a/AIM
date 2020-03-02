@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ResourceTypesCard should render correctly 1`] = `
+<WithStyles(Card)
+  className="container"
+>
+  <withI18nextTranslation(WithStyles(TypeFields))
+    active={true}
+    backup={false}
+    description=""
+    errors={
+      Object {
+        "showTooltip": true,
+      }
+    }
+    highlightEmpty={false}
+    imgBytes={Array []}
+    imgSource=""
+    name=""
+    onActiveChange={[Function]}
+    onBackupChange={[Function]}
+    onDescriptionChange={[Function]}
+    onImgByteCodeChange={[Function]}
+    onImgSourceChange={[Function]}
+    onNameChange={[Function]}
+    onQuantitativeChange={[Function]}
+    quantitative={false}
+  />
+  <WithStyles(Divider) />
+  <withI18nextTranslation(WithStyles(ParameterList))
+    changeOrder={[Function]}
+    highlightEmpty={false}
+    onEditCanceled={[Function]}
+    onEditConfirmed={[Function]}
+    onParameterRowModelChange={[Function]}
+    onRemoveButtonClick={[Function]}
+    rows={
+      Object {
+        "constraint": Object {},
+        "identifier": "",
+        "modifier": 2,
+        "name": "",
+        "parameterType": "NUMBER",
+        "required": false,
+      }
+    }
+  />
+  <div
+    className="buttonGroup"
+  >
+    <WithStyles(Button)
+      onClick={[Function]}
+      variant="contained"
+    >
+      common.cancel_i18n
+    </WithStyles(Button)>
+    <WithStyles(Tooltip)
+      title="typeCard.tooltips.hasUnconfirmedParam_i18n"
+    >
+      <WithStyles(Button)
+        className="completeButton"
+        onClick={[Function]}
+        variant="contained"
+      >
+        common.complete_i18n
+      </WithStyles(Button)>
+    </WithStyles(Tooltip)>
+  </div>
+</WithStyles(Card)>
+`;

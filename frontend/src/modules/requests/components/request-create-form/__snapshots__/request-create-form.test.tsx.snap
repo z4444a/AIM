@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RequestCreateForm should render correctly 1`] = `
+<WithStyles(Paper)
+  classes={
+    Object {
+      "root": "container",
+    }
+  }
+>
+  <div>
+    <WithStyles(Typography)
+      variant="h5"
+    >
+      createRequestPage.header_i18n
+    </WithStyles(Typography)>
+    <div>
+      <WithStyles(AimAutocomplete)
+        error={false}
+        getSuggestions={[Function]}
+        label="createRequestPage.form.resourceType_i18n"
+        onValueChange={[Function]}
+        required={true}
+      />
+    </div>
+    <div />
+    <div>
+      <WithStyles(AimAutocomplete)
+        error={false}
+        getSuggestions={[Function]}
+        label="requestPage.grid.columns.project_i18n"
+        onValueChange={[Function]}
+      />
+    </div>
+    <div
+      className="formLine dateRangeContainer"
+    >
+      <AimDatePicker
+        error={false}
+        label="createRequestPage.form.startDate_i18n"
+        onChange={[Function]}
+        required={true}
+        value={null}
+      />
+      <AimDatePicker
+        error={false}
+        label="createRequestPage.form.endDate_i18n"
+        onChange={[Function]}
+        required={true}
+        value={null}
+      />
+    </div>
+    <div
+      className="formLine"
+    >
+      <TextField
+        error={false}
+        fullWidth={true}
+        label="createRequestPage.form.name_i18n"
+        onChange={[Function]}
+        required={true}
+        select={false}
+        value="name"
+        variant="standard"
+      />
+    </div>
+    <div
+      className="btnContainer"
+    >
+      <WithStyles(Button)
+        onClick={[Function]}
+        variant="contained"
+      >
+        common.cancel_i18n
+      </WithStyles(Button)>
+      <WithStyles(Button)
+        onClick={[Function]}
+        variant="contained"
+      >
+        createRequestPage.submitBtn_i18n
+      </WithStyles(Button)>
+    </div>
+  </div>
+</WithStyles(Paper)>
+`;

@@ -1,0 +1,94 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RequestsPage should render correctly 1`] = `
+<withI18nextTranslation(WithStyles(AimDataGrid))
+  columns={
+    Array [
+      Object {
+        "label": "requestPage.grid.columns.id_i18n",
+        "name": "id",
+        "options": Object {
+          "display": "false",
+        },
+      },
+      Object {
+        "label": "requestPage.grid.columns.creation_i18n",
+        "name": "creation",
+        "options": Object {
+          "customBodyRender": [Function],
+        },
+      },
+      Object {
+        "label": "requestPage.grid.columns.type_i18n",
+        "name": "type",
+        "options": Object {
+          "customBodyRender": [Function],
+        },
+      },
+      Object {
+        "label": "requestPage.grid.columns.project_i18n",
+        "name": "project",
+        "options": Object {
+          "customBodyRender": [Function],
+        },
+      },
+      Object {
+        "label": "requestPage.grid.columns.author_i18n",
+        "name": "author",
+        "options": Object {
+          "customBodyRender": [Function],
+        },
+      },
+      Object {
+        "label": "requestPage.grid.columns.owner_i18n",
+        "name": "owner",
+        "options": Object {
+          "customBodyRender": [Function],
+          "display": "false",
+        },
+      },
+      Object {
+        "label": "requestPage.grid.columns.state_i18n",
+        "name": "state",
+        "options": Object {
+          "customBodyRender": [Function],
+          "display": "false",
+        },
+      },
+      Object {
+        "label": "requestPage.grid.columns.status_i18n",
+        "name": "status",
+        "options": Object {
+          "customBodyRender": [Function],
+        },
+      },
+      Object {
+        "label": "requestPage.grid.columns.parameters_i18n",
+        "name": "parameterValues",
+        "options": Object {
+          "customBodyRender": [Function],
+        },
+      },
+    ]
+  }
+  customToolbar={[Function]}
+  data={Array []}
+  filterValues={Object {}}
+  onChangePage={[Function]}
+  onChangeRowsPerPage={[Function]}
+  onColumnSortChange={[Function]}
+  onFilterChange={[Function]}
+  onRowClick={[Function]}
+  pageTitle="requestPage.header_i18n"
+  renderCustomFilterCmp={[Function]}
+  rowsPerPage={10}
+  sort={
+    Object {
+      "direction": "asc",
+      "sortBy": "type",
+    }
+  }
+  toggleFilterPanel={[Function]}
+  totalPageCount={10}
+/>
+`;

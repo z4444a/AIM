@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ResourcePoolGridPage should render correctly 1`] = `
+<withI18nextTranslation(WithStyles(AimDataGrid))
+  columns={
+    Array [
+      Object {
+        "label": "resourcePoolGridPage.grid.columns.id_i18n",
+        "name": "id",
+        "options": Object {
+          "display": "false",
+        },
+      },
+      Object {
+        "label": "resourcePoolGridPage.grid.columns.name_i18n",
+        "name": "name",
+      },
+      Object {
+        "label": "resourcePoolGridPage.grid.columns.resourceType_i18n",
+        "name": "resourceType",
+        "options": Object {
+          "customBodyRender": [Function],
+        },
+      },
+      Object {
+        "label": "resourcePoolGridPage.grid.columns.capacity_i18n",
+        "name": "capacity",
+      },
+      Object {
+        "label": "resourcePoolGridPage.grid.columns.owners_i18n",
+        "name": "owners",
+        "options": Object {
+          "customBodyRender": [Function],
+        },
+      },
+      Object {
+        "label": "resourcePoolGridPage.grid.columns.description_i18n",
+        "name": "description",
+      },
+      Object {
+        "label": "resourcePoolGridPage.grid.columns.requestsAmount_i18n",
+        "name": "requestsAmount",
+      },
+      Object {
+        "label": "resourcePoolGridPage.grid.columns.active_i18n",
+        "name": "active",
+        "options": Object {
+          "customBodyRender": [Function],
+        },
+      },
+      Object {
+        "label": "requestPage.grid.columns.parameters_i18n",
+        "name": "parametersValues",
+        "options": Object {
+          "customBodyRender": [Function],
+        },
+      },
+      Object {
+        "label": " ",
+        "name": "id",
+        "options": Object {
+          "customBodyRender": [Function],
+        },
+      },
+    ]
+  }
+  customToolbar={[Function]}
+  data={Array []}
+  filterValues={Object {}}
+  onChangePage={[Function]}
+  onChangeRowsPerPage={[Function]}
+  onColumnSortChange={[Function]}
+  onFilterChange={[Function]}
+  pageTitle="resourcePoolGridPage.header_i18n"
+  renderCustomFilterCmp={[Function]}
+  rowsPerPage={10}
+  sort={
+    Object {
+      "direction": "asc",
+      "sortBy": "name",
+    }
+  }
+  toggleFilterPanel={[Function]}
+  totalPageCount={10}
+/>
+`;

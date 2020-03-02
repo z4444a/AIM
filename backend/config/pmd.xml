@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    name="Custom ruleset"
+    xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+    xsi:noNamespaceSchemaLocation="http://pmd.sourceforge.net/ruleset_xml_schema.xsd"
+    xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_xml_schema.xsd">
+  <description>
+    AIM rulesets
+  </description>
+
+  <rule ref="category/java/errorprone.xml">
+    <exclude name="AvoidBranchingStatementAsLastInLoop"/>
+    <exclude name="AvoidEnumAsIdentifier"/> <!-- Outdated as for java 8 -->
+    <exclude name="AvoidAssertAsIdentifier"/> <!-- Outdated as for java 8 -->
+    <exclude name="BeanMembersShouldSerialize"/> <!-- EJB -->
+    <exclude name="CallSuperFirst"/>
+    <exclude name="CallSuperLast"/>
+    <exclude name="CloneMethodMustBePublic"/> <!-- we don't use cloneable and clone -->
+    <exclude name="CloneMethodMustImplementCloneable"/>
+    <exclude name="CloneMethodReturnTypeMustMatchClassName"/>
+    <exclude name="CloneThrowsCloneNotSupportedException"/>
+    <exclude name="DoNotHardCodeSDCard"/> <!-- Android -->
+    <exclude name="ProperLogger"/>
+    <exclude name="StaticEJBFieldShouldBeFinal"/> <!-- EJB -->
+    <exclude name="UseProperClassLoader"/> <!-- EJB -->
+  </rule>
+
+  <rule ref="category/java/errorprone.xml/ProperLogger">
+    <properties>
+      <property name="staticLoggerName" value="logger"/>
+    </properties>
+  </rule>
+
+  <rule ref="category/java/errorprone.xml/AvoidBranchingStatementAsLastInLoop">
+    <priority>4</priority>
+  </rule>
+
+  <rule ref="category/java/bestpractices.xml">
+    <exclude name="GuardLogStatement"/> <!-- Use lambdas in logs for java 8+ -->
+    <exclude name="AbstractClassWithoutAbstractMethod"/>
+  </rule>
+
+  <rule ref="category/java/codestyle.xml">
+    <exclude name="AtLeastOneConstructor"/>
+    <exclude name="LocalHomeNamingConvention"/> <!-- EJB -->
+    <exclude name="MDBAndSessionBeanNamingConvention"/> <!-- EJB -->
+    <exclude name="OnlyOneReturn"/>
+    <exclude name="RemoteInterfaceNamingConvention"/> <!-- EJB -->
+    <exclude name="RemoteSessionInterfaceNamingConvention"/> <!-- EJB -->
+    <exclude name="FieldNamingConventions"/>
+    <exclude name="ClassNamingConventions"/>
+    <exclude name="MethodArgumentCouldBeFinal"/>
+  </rule>
+
+  <rule ref="category/java/codestyle.xml/FieldNamingConventions">
+    <properties>
+      <property name="violationSuppressXPath" value="//VariableDeclaratorId[@Image='logger']"/>
+    </properties>
+  </rule>
+
+  <rule ref="category/java/design.xml">
+    <exclude name="CollapsibleIfStatements"/>
+    <exclude name="ModifiedCyclomaticComplexity"/>
+    <exclude name="LoosePackageCoupling"/>
+    <exclude name="DataClass"/>
+    <exclude name="LawOfDemeter"/>
+    <exclude name="AvoidUncheckedExceptionsInSignatures"/>
+  </rule>
+
+  <rule ref="category/java/design.xml/CollapsibleIfStatements">
+    <priority>5</priority>
+  </rule>
+
+  <rule ref="category/java/documentation.xml"/>
+  <rule ref="category/java/multithreading.xml">
+    <exclude name="UseConcurrentHashMap"/> <!-- Do not usually need. If you want to include this consider of lowering priority (default: 3) -->
+  </rule>
+
+  <rule ref="category/java/documentation.xml/CommentSize">
+    <properties>
+      <property name="maxLines" value="12"/>
+      <property name="maxLineLength" value="120"/>
+    </properties>
+  </rule>
+
+
+  <rule ref="category/java/performance.xml"/>
+
+  <rule ref="category/java/documentation.xml/CommentRequired">
+    <priority>2</priority>
+    <properties>
+      <property name="enumCommentRequirement" value="Ignored"/>
+      <property name="fieldCommentRequirement" value="Ignored"/>
+      <property name="serialVersionUIDCommentRequired" value="Unwanted"/>
+    </properties>
+  </rule>
+
+  <rule ref="category/java/codestyle.xml/ShortVariable">
+    <properties>
+      <property name="violationSuppressXPath" value="//VariableDeclaratorId[@Image='id']"/>
+    </properties>
+  </rule>
+
+  <rule ref="category/java/design.xml/ClassWithOnlyPrivateConstructorsShouldBeFinal">
+    <properties>
+      <property name="violationSuppressXPath" value="//ClassOrInterfaceDeclaration['ru.relex.aim.rest.AimApp']"/>
+    </properties>
+  </rule>
+
+  <rule ref="category/java/design.xml/UseUtilityClass">
+    <properties>
+      <property name="violationSuppressXPath" value="//ClassOrInterfaceDeclaration['ru.relex.aim.rest.AimApp']'"/>
+    </properties>
+  </rule>
+
+  <rule ref="category/java/codestyle.xml/LongVariable">
+    <properties>
+      <property name="minimum" value="40"/>
+    </properties>
+  </rule>
+
+
+</ruleset>

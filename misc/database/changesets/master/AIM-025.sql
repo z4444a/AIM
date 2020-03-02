@@ -1,0 +1,2 @@
+ALTER TABLE aim.requests
+    ADD COLUMN capacity INTEGER DEFAULT 1 NOT NULL;

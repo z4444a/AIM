@@ -1,0 +1,28 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.flywaydb:flyway-gradle-plugin:6.0.0-beta'
+        classpath 'org.postgresql:postgresql:42.2.5'
+    }
+}
+plugins {
+    id 'org.flywaydb.flyway' version '6.0.0-beta'
+}
+
+dependencies {
+    implementation 'org.postgresql:postgresql:42.2.5'
+    implementation "org.springframework.boot:spring-boot-starter-data-jpa:$spring_data_ver"
+    implementation "com.fasterxml.jackson.core:jackson-annotations:2.9.8"
+
+    apiElements "org.springframework.data:spring-data-commons:$spring_data_ver"
+    apiElements "org.springframework.data:spring-data-jpa:$spring_data_ver"
+    apiElements "javax.persistence:javax.persistence-api:2.2"
+}
+flyway {
+    url = 'jdbc:postgresql://localhost:5432/postgres'
+    user = 'postgres'
+    driver = 'org.postgresql.Driver'
+    schemas = ['public']
+}

@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ResourceTypePage should render correctly 1`] = `
+<div
+  className="container"
+>
+  <withI18nextTranslation(WithStyles(ResourceTypesCard))
+    dialogIsOpen={false}
+    editedParameterName={null}
+    highlightEmpty={false}
+    onCancelButtonClick={[Function]}
+    onChange={[Function]}
+    onCompleteButtonClick={[Function]}
+    onDialogClosed={[Function]}
+    onDialogOpened={[Function]}
+    onHighlightEmptyReset={[Function]}
+    onHighlightEmptySet={[Function]}
+    onParameterEditReset={[Function]}
+    onParameterEditSet={[Function]}
+    onParameterFormChange={[Function]}
+    type={
+      Object {
+        "active": false,
+        "description": "",
+        "id": 0,
+        "name": "",
+        "needsBackup": false,
+        "parameters": Array [],
+        "picture": Object {
+          "picture": Array [],
+          "picturePath": "",
+        },
+        "quantitative": false,
+      }
+    }
+  />
+</div>
+`;

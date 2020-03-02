@@ -1,0 +1,16 @@
+server:
+  servlet:
+    context-path: /api
+spring:
+  datasource:
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:postgres}
+    url: jdbc:postgresql://${DB_URL:localhost:5432}/aim
+ldap:
+  host: ${LDAP_HOST}
+  factories:
+    initctx: ${LDAP_CTX_FACTORY:com.sun.jndi.ldap.LdapCtxFactory}
+  searchbase: ${LDAP_SEARCH_BASE:ou=Users,domainName=relex.ru,o=domains,dc=relex,dc=ru}
+  user: ${LDAP_USER:cn=Manager,dc=relex,dc=ru}
+  userBase: ${LDAP_USER_BASE:cn=Manager,dc=relex,dc=ru}
+  password: ${LDAP_PASSWORD}

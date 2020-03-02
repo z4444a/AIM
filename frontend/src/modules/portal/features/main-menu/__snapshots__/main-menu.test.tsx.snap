@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MainMenu should render correctly 1`] = `
+<WithStyles(List)>
+  <WithStyles(ListItem)
+    button={true}
+    id="mainMenuItemRequests"
+    key="mainMenuItemRequests"
+    onClick={[Function]}
+  >
+    <WithStyles(ListItemIcon)>
+      <pure(MessageTwoToneIcon) />
+    </WithStyles(ListItemIcon)>
+    <WithStyles(ListItemText)
+      primary="mainMenu.requests_i18n"
+    />
+  </WithStyles(ListItem)>
+  <WithStyles(ListItem)
+    button={true}
+    id="mainMenuItemResourceTypes"
+    key="mainMenuItemResourceTypes"
+    onClick={[Function]}
+  >
+    <WithStyles(ListItemIcon)>
+      <pure(WorkIcon) />
+    </WithStyles(ListItemIcon)>
+    <WithStyles(ListItemText)
+      primary="mainMenu.resourceTypes_i18n"
+    />
+  </WithStyles(ListItem)>
+  <WithStyles(ListItem)
+    button={true}
+    id="mainMenuItemResourcePools"
+    key="mainMenuItemResourcePools"
+    onClick={[Function]}
+  >
+    <WithStyles(ListItemIcon)>
+      <pure(TableChartIcon) />
+    </WithStyles(ListItemIcon)>
+    <WithStyles(ListItemText)
+      primary="mainMenu.resourcePools_i18n"
+    />
+  </WithStyles(ListItem)>
+  <WithStyles(ListItem)
+    button={true}
+    id="mainMenuItemEmployees"
+    key="mainMenuItemEmployees"
+    onClick={[Function]}
+  >
+    <WithStyles(ListItemIcon)>
+      <pure(PeopleIcon) />
+    </WithStyles(ListItemIcon)>
+    <WithStyles(ListItemText)
+      primary="mainMenu.employees_i18n"
+    />
+  </WithStyles(ListItem)>
+  <WithStyles(ListItem)
+    button={true}
+    id="mainMenuItemSettings"
+    key="mainMenuItemSettings"
+    onClick={[Function]}
+  >
+    <WithStyles(ListItemIcon)>
+      <pure(SettingsIcon) />
+    </WithStyles(ListItemIcon)>
+    <WithStyles(ListItemText)
+      primary="mainMenu.settings_i18n"
+    />
+  </WithStyles(ListItem)>
+</WithStyles(List)>
+`;

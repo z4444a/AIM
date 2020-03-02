@@ -1,0 +1,118 @@
+import javax.xml.transform.TransformerFactory
+import javax.xml.transform.stream.StreamResult
+import javax.xml.transform.stream.StreamSource
+
+import static org.gradle.api.tasks.PathSensitivity.NONE
+
+def isCI = findProperty("CI") != null
+
+allprojects {
+  ext {
+    pmd_tool_ver = "6.16.0"
+    checkstyle_ver = "8.18"
+  }
+
+  apply {
+    plugin 'pmd'
+    plugin 'checkstyle'
+    plugin 'com.github.spotbugs'
+  }
+
+  pmd {
+    ignoreFailures = true
+    rulePriority = 3
+    toolVersion = pmd_tool_ver
+    pmdTest.enabled = false
+    sourceSets = [sourceSets.main]
+    ruleSets = []
+    ruleSetFiles = files("${rootProject.projectDir}/config/pmd.xml")
+    pmdMain {
+      reports {
+        html.enabled = !isCI
+        xml.enabled = isCI
+      }
+    }
+  }
+
+  spotbugs {
+    effort = "max"
+    reportLevel = "high"
+    toolVersion = spotbugs_tool_ver
+    ignoreFailures = true
+  }
+
+  spotbugsTest.enabled = false
+
+  checkstyle {
+    ignoreFailures = true
+    config = resources.text.fromFile("${rootProject.projectDir}/config/checkstyle.xml")
+    maxWarnings = 100
+    toolVersion = "8.21"
+    sourceSets = [sourceSets.main]
+    showViolations = false
+    checkstyleTest.enabled = false
+    checkstyleMain {
+      reports {
+        html.enabled = !isCI
+        xml.enabled = isCI
+      }
+    }
+  }
+
+  task lint { // an empty task to aggregate checkstyle/pmd/spotbugs linting
+    dependsOn pmdMain, checkstyleMain, spotbugsMain
+  }
+
+  def mod = it
+  spotbugsMain {
+    sourceSets {
+      spotbugs {
+        classpath += mod.sourceSets.main.compileClasspath
+      }
+    }
+  }
+
+  if (!isCI) {
+    ['pmd', 'checkstyle', 'spotbugs'].each { lnt ->
+      task("copy${lnt}Report", type: Copy) {
+        from "${buildDir}/reports/${lnt}/"
+        into "${rootProject.buildDir}/reports/${lnt}/"
+        include "main.html"
+        rename "main.html", "${project.name}.html"
+        includeEmptyDirs = false
+
+        doLast {
+          if (project.name == rootProject.name) {
+            delete file("${rootProject.buildDir}/reports/${lnt}/main.html")
+          }
+        }
+      }
+      tasks["${lnt}Main"].finalizedBy "copy${lnt}Report"
+    }
+
+    spotbugsMain {
+      reports {
+        xml.withMessages true
+      }
+
+      task spotbugsMainHtmlReport {
+        def input = reports.xml.destination
+        inputs.file file("${rootProject.projectDir}/config/fancy.xsl") withPropertyName 'spotbugsStylesheet' withPathSensitivity NONE
+        inputs.files fileTree(input) withPropertyName 'input' withPathSensitivity NONE skipWhenEmpty()
+        def output = file(input.absolutePath.replaceFirst(/\.xml$/, '.html'))
+        outputs.file output withPropertyName 'output'
+        doLast {
+          def factory = TransformerFactory.newInstance()
+          def transformer = factory.newTransformer(new StreamSource(file("${rootProject.projectDir}/config/fancy.xsl")))
+          transformer.transform(new StreamSource(input), new StreamResult(output))
+        }
+      }
+      copyspotbugsReport.dependsOn spotbugsMainHtmlReport
+    }
+  }
+
+  dependencies {
+    pmd "net.sourceforge.pmd:pmd-core:$pmd_tool_ver"
+    pmd "net.sourceforge.pmd:pmd-java:$pmd_tool_ver"
+  }
+}

@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ResourceTypeFilterPanel should render correctly 1`] = `
+<div
+  className="container"
+>
+  <TextField
+    fullWidth={true}
+    label="resourceTypePage.grid.columns.name_i18n"
+    onChange={[Function]}
+    onKeyPress={[Function]}
+    required={false}
+    select={false}
+    value=""
+    variant="standard"
+  />
+</div>
+`;

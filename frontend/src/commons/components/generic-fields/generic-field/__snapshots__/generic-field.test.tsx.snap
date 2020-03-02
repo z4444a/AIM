@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GenericField should render correctly 1`] = `
+<div
+  className="container"
+>
+  <withI18nextTranslation(TextField)
+    fieldConfig={
+      TextFieldConfigModel {
+        "FormHelperTextProps": undefined,
+        "InputProps": undefined,
+        "className": undefined,
+        "constraints": undefined,
+        "disabled": undefined,
+        "error": undefined,
+        "fieldType": "Text",
+        "fullWidth": undefined,
+        "inputRef": undefined,
+        "key": "key",
+        "labelConfig": undefined,
+        "multipleMax": 1,
+        "required": false,
+        "rootRef": undefined,
+        "showHelperOnError": true,
+        "style": undefined,
+      }
+    }
+    handlers={
+      Object {
+        "onValueChange": [Function],
+        "onValuesChange": [Function],
+      }
+    }
+    values={
+      Array [
+        undefined,
+      ]
+    }
+  />
+</div>
+`;

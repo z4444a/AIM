@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UpdateTypePage should render correctly 1`] = `
+<Connect(WithStyles(ResourceTypePage))
+  onSubmit={[Function]}
+  showIdentifiers={true}
+/>
+`;

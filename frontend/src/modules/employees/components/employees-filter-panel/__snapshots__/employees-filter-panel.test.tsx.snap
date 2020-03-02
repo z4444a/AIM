@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EmployeesFilterPanel should render correctly 1`] = `
+<div
+  className="container"
+>
+  <TextField
+    fullWidth={true}
+    label="employeePage.grid.columns.lastName_i18n"
+    onChange={[Function]}
+    onKeyPress={[Function]}
+    required={false}
+    select={false}
+    value=""
+    variant="standard"
+  />
+</div>
+`;

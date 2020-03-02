@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AimDataGridFilterPanel should render correctly 1`] = `
+<div
+  className="container"
+>
+  <WithStyles(DialogTitle)>
+    aimDataGrid.filterPanel.header_i18n
+  </WithStyles(DialogTitle)>
+  <WithStyles(DialogContent)>
+    <div
+      id="innerComponent"
+    />
+  </WithStyles(DialogContent)>
+  <WithStyles(DialogActions)>
+    <WithStyles(Button)
+      id="dataGridFilterPanelClearFiltersBtn"
+      onClick={[Function]}
+    >
+      aimDataGrid.filterPanel.clearFiltersBtn_i18n
+    </WithStyles(Button)>
+    <WithStyles(Button)
+      id="dataGridFilterPanelApplyFiltersBtn"
+      onClick={[Function]}
+    >
+      aimDataGrid.filterPanel.applyFiltersBtn_i18n
+    </WithStyles(Button)>
+  </WithStyles(DialogActions)>
+</div>
+`;

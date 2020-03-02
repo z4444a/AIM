@@ -1,0 +1,117 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RegistrationForm should render correctly 1`] = `
+<div
+  className="container"
+>
+  <WithStyles(CssBaseline) />
+  <div
+    className="paper"
+  >
+    <WithStyles(Card)
+      className="card"
+    >
+      <WithStyles(Avatar)
+        className="avatar"
+      >
+        <pure(SupervisorAccountIcon) />
+      </WithStyles(Avatar)>
+      <WithStyles(Typography)
+        classes={
+          Object {
+            "root": "greeting",
+          }
+        }
+        component="h1"
+        variant="h6"
+      >
+        registrationPage.form.header_i18n
+      </WithStyles(Typography)>
+      <form
+        className="form"
+        noValidate={true}
+      >
+        <TextField
+          autoFocus={true}
+          fullWidth={true}
+          id="login"
+          label="registrationPage.form.loginFieldLabel_i18n"
+          margin="dense"
+          onChange={[Function]}
+          onKeyPress={[Function]}
+          required={true}
+          select={false}
+          value=""
+          variant="outlined"
+        />
+        <TextField
+          InputProps={
+            Object {
+              "endAdornment": <WithStyles(WithFormControlContext(InputAdornment))
+                position="end"
+              >
+                <WithStyles(IconButton)
+                  aria-label="Toggle password visibility"
+                  onClick={[Function]}
+                  tabIndex={-1}
+                >
+                  <pure(VisibilityIcon) />
+                </WithStyles(IconButton)>
+              </WithStyles(WithFormControlContext(InputAdornment))>,
+            }
+          }
+          fullWidth={true}
+          id="password"
+          label="registrationPage.form.pwdFieldLabel_i18n"
+          margin="dense"
+          onChange={[Function]}
+          onKeyPress={[Function]}
+          required={true}
+          select={false}
+          type="password"
+          value=""
+          variant="outlined"
+        />
+        <TextField
+          InputProps={
+            Object {
+              "endAdornment": <WithStyles(WithFormControlContext(InputAdornment))
+                position="end"
+              >
+                <WithStyles(IconButton)
+                  aria-label="Toggle password visibility"
+                  onClick={[Function]}
+                  tabIndex={-1}
+                >
+                  <pure(VisibilityIcon) />
+                </WithStyles(IconButton)>
+              </WithStyles(WithFormControlContext(InputAdornment))>,
+            }
+          }
+          error={false}
+          fullWidth={true}
+          id="passwordConfirm"
+          label="registrationPage.form.pwdConfirmFieldLabel_i18n"
+          margin="dense"
+          onChange={[Function]}
+          onKeyPress={[Function]}
+          required={true}
+          select={false}
+          type="password"
+          value=""
+          variant="outlined"
+        />
+        <WithStyles(Button)
+          className="submit"
+          disabled={true}
+          fullWidth={true}
+          onClick={[Function]}
+          variant="contained"
+        >
+          registrationPage.form.submitBtn_i18n
+        </WithStyles(Button)>
+      </form>
+    </WithStyles(Card)>
+  </div>
+</div>
+`;

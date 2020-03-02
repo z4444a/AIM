@@ -1,0 +1,5 @@
+ALTER TABLE aim.requests
+  ALTER COLUMN pause SET DEFAULT FALSE;
+
+ALTER TABLE aim.requests
+  ALTER COLUMN status_id SET DEFAULT 1;

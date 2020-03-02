@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListField should render correctly 1`] = `
+<TextField
+  error={false}
+  onChange={[Function]}
+  required={false}
+  select={true}
+  value=""
+  variant="standard"
+>
+  <WithStyles(MenuItem)
+    key="listField_firstOption"
+    value="firstOption"
+  >
+    FirstOption
+  </WithStyles(MenuItem)>
+  <WithStyles(MenuItem)
+    key="listField_secondOption"
+    value="secondOption"
+  >
+    SecondOption
+  </WithStyles(MenuItem)>
+</TextField>
+`;

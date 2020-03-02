@@ -1,0 +1,412 @@
+{
+  "common": {
+    "loading": "Загрузка...",
+    "complete": "Готово",
+    "cancel": "Отмена",
+    "change": "Изменить",
+    "add": "Добавить",
+    "upload": "Загрузить",
+    "choose": "Выбрать",
+    "continue": "Продолжить"
+  },
+  "loginPage": {
+    "errorMsg": {
+      "invalidLoginPwd": "Неверное имя пользователя или пароль"
+    },
+    "form": {
+      "header": "Авторизуйтесь, чтобы начать работу",
+      "loginFieldLabel": "Логин",
+      "pwdFieldLabel": "Пароль",
+      "submitBtn": "Войти"
+    }
+  },
+  "settingsPage": {
+    "emailSettings": {
+      "header": "Электронная почта",
+      "form": {
+        "server": "Сервер",
+        "pwd": "Пароль",
+        "port": "Порт",
+        "protocol": "Протокол",
+        "fromMail": "Почтовый адрес"
+      }
+    },
+    "messages": {
+      "successfullyUpdated": "Изменения настроек были успешно сохранены",
+      "updatingError": "Произошла ошибка при сохранении изменений",
+      "processedOnServer": "Сохранение изменения настроек"
+    }
+  },
+  "registrationPage": {
+    "form": {
+      "header": "Регистрация",
+      "loginFieldLabel": "Логин",
+      "pwdFieldLabel": "Пароль",
+      "pwdConfirmFieldLabel": "Подтвердите пароль",
+      "submitBtn": "Зарегистрироваться"
+    }
+  },
+  "mainMenu": {
+    "requests": "Заявки",
+    "resourceTypes": "Типы ресурсов",
+    "resourcePools": "Пулы ресурсов",
+    "employees": "Сотрудники",
+    "settings": "Настройки"
+  },
+  "employeePage": {
+    "header": "Сотрудники",
+    "buttons": {
+      "syncToIntranet": "Синхронизовать с Интранетом"
+    },
+    "grid": {
+      "columns": {
+        "id": "ID",
+        "lastName": "Фамилия",
+        "firstName": "Имя",
+        "middleName": "Отчество",
+        "position": "Должность",
+        "role": "Роль"
+      }
+    }
+  },
+  "employeeChangeRolePage": {
+    "USER": "Пользователь",
+    "ADMIN": "Администратор",
+    "allowToCreatePool": "Разрешить создавать пулы"
+  },
+  "resourcePoolGridPage": {
+    "header": "Пулы ресурсов",
+    "buttons": {
+      "createPool": "Создать пул",
+      "showChart": "График распределения типов ресурсов по владельцам",
+      "editPool": "Редактировать пул"
+    },
+    "filters": {
+      "activeState": "Состояние",
+      "myPools": "Мои пулы"
+    },
+    "grid": {
+      "columns": {
+        "id": "ID",
+        "name": "Название",
+        "resourceType": "Тип",
+        "capacity": "Емкость",
+        "description": "Описание",
+        "owners": "Владельцы",
+        "active": "Активен",
+        "requestsAmount": "Заявки в работе"
+      }
+    }
+  },
+  "resourceTypePage": {
+    "header": "Типы ресурсов",
+    "grid": {
+      "columns": {
+        "id": "ID",
+        "name": "Наименование",
+        "description": "Описание",
+        "pools": "Пулы",
+        "requests": "Заявки",
+        "poolParameters": "Параметры пула",
+        "requestParameters": "Параметры заявки",
+        "allocationParameters": "Параметры развертывания"
+      }
+    },
+    "tooltips": {
+      "requests": {
+        "new": "Новые",
+        "inProgress": "В работе",
+        "processed": "Исполнены",
+        "canceled": "Отменены"
+      }
+    }
+  },
+  "resourceTypesPage": {
+    "buttons": {
+      "new": "Создать тип ресурса"
+    },
+    "tooltips": {
+      "edit": "Редактировать тип ресурса"
+    }
+  },
+  "requestPage": {
+    "header": "Заявки",
+    "messages": {
+      "successfullyCreated": "Заявка успешно создана",
+      "creationError": "Произошла ошибка при создании заявки",
+      "processedOnServer": "Создание заявки"
+    },
+    "status": {
+      "new": "Новая",
+      "inWork": "В работе",
+      "executed": "Исполнена",
+      "canceled": "Отменена",
+      "paused": "Приостановлена"
+    },
+    "buttons": {
+      "createRequest": "Создать заявку"
+    },
+    "grid": {
+      "columns": {
+        "id": "ID",
+        "creation": "Дата создания",
+        "status": "Статус",
+        "type": "Тип ресурса",
+        "project": "Проект",
+        "author": "Автор",
+        "owner": "Ответственный",
+        "state": "Состояние",
+        "start": "Начало использования",
+        "end": "Конец использования",
+        "description": "Описание",
+        "amount": "Количество",
+        "pool": "Пул ресурсов",
+        "parameters": "Параметры"
+      }
+    }
+  },
+  "resourcePoolPage": {
+    "header": "Пул ресурсов",
+    "messages": {
+      "successfullyCreated": "Пул ресурсов успешно создан",
+      "creationError": "Произошла ошибка при создании пула ресурсов",
+      "processedOnServer": "Создание пула ресурсов",
+      "noParams": "Дополнительные параметры отсутсвуют"
+    },
+    "form": {
+      "resourceType": "Тип ресурса",
+      "name": "Название пула",
+      "owners": "Владельцы",
+      "capacity": "Ёмкость",
+      "monitoring": "Мониторинг состояния",
+      "active": "Пул активен",
+      "description": "Описание",
+      "priority": "Приоритет"
+    },
+    "tooltips": {
+      "priority": "Приоритет выбора данного пула, пулы с большим приоритетом выбираются в первую очередь"
+    },
+    "submitBtn": "Создать"
+  },
+  "allocationType": {
+    "auto": "Автоматический",
+    "manual": "Ручной",
+    "semiAuto": "Полуавтоматический"
+  },
+  "createRequestPage": {
+    "header": "Создание заявки",
+    "form": {
+      "name": "Описание",
+      "startDate": "Начало эксплуатации",
+      "endDate": "Окончание эксплуатации",
+      "resourceType": "Тип ресурса",
+      "owner": "Владелец заявки",
+      "resourceAllocationType": "Способ развёртывания"
+    },
+    "submitBtn": "Создать"
+  },
+  "aimDataGrid": {
+    "filterPanel": {
+      "header": "Фильтры",
+      "clearFiltersBtn": "Очистить",
+      "applyFiltersBtn": "Применить"
+    },
+    "body": {
+      "noMatch": "Нет данных",
+      "toolTip": "Сортировать"
+    },
+    "pagination": {
+      "next": "Следующая",
+      "previous": "Предыдущая",
+      "rowsPerPage": "Количество строк:",
+      "displayRows": "из"
+    },
+    "toolbar": {
+      "search": "Поиск",
+      "downloadCsv": "Скачать CSV",
+      "print": "Печать",
+      "viewColumns": "Колонки",
+      "filterTable": "Фильтры",
+      "showFilter": "Показать фильтры",
+      "hideFilter": "Скрыть фильтры"
+    },
+    "filter": {
+      "all": "Все",
+      "title": "Фильтры",
+      "reset": "Сбросить"
+    },
+    "viewColumns": {
+      "title": "Список колонок",
+      "titleAria": "Показать/Скрыть колонки"
+    },
+    "selectedRows": {
+      "text": "выбрано строк",
+      "delete": "Удалить",
+      "deleteAria": "Удалить выбранные строки"
+    }
+  },
+  "constraints": {
+    "requiredField": "Обязательное поле",
+    "maxLength": "Длина поля не должна превышать {{max}} символов",
+    "maxNumberValue": "Значение не должно превышать {{max}}",
+    "minNumberValue": "Значение не должно быть меньше {{min}}",
+    "maxDateValue": "Значение не должно превышать {{max}}",
+    "minDateValue": "Значение не должно быть меньше {{min}}",
+    "regExp": "Не совпадает c шаблоном: {{regExp}}"
+  },
+  "picturePicker": {
+    "label": "Адрес картинки",
+    "tooltip": "Загрузить с компьютера"
+  },
+  "parameters": {
+    "card": {
+      "nameLabel": "Название параметра",
+      "typeLabel": "Тип",
+      "identifierLabel": "Идентификатор",
+      "technicalLabel": "Технический",
+      "propertiesLabel": "Свойства",
+      "requiredLabel": "Обязательный",
+      "visibleToOwnerLabel": "Виден владельцу заявки",
+      "multivaluedLabel": "Количество значений",
+      "duplicateNameText": "Параметр с таким названием уже добавлен",
+      "constraintLabel": "Ограничения"
+    },
+    "dialogue": {
+      "title": "Параметр"
+    }
+  },
+  "parameterType": {
+    "number": "Целое число",
+    "date": "Дата",
+    "list": "Список",
+    "text": "Текст",
+    "real": "Дробное число",
+    "pool": "Пул ресурсов"
+  },
+  "typeCard": {
+    "fields": {
+      "icon": {
+        "label": "Адрес картинки",
+        "shouldBeginWithHttps": "Адрес должен начинаться с 'http(s)://'"
+      },
+      "nameLabel": "Название",
+      "descriptionLabel": "Описание типа",
+      "idLabel": "Номер",
+      "activeTooltip": "Тип будет доступен",
+      "inactiveTooltip": "Тип и его пулы будут более не доступны для использования",
+      "backupLabel": "Нужен backup",
+      "activeLabel": "Тип активен",
+      "quantitativeLabel": "Количественный",
+      "inactiveLabel": "Тип не активен"
+    },
+    "parameters": {
+      "addLabel": "Добавить параметр",
+      "main": "Параметры заявки",
+      "technical": "Параметры пула",
+      "requestParameters": "Параметры заявки",
+      "allocationParameters": "Параметры развёртывания",
+      "noParamsMessage": "Параметры отсутствуют",
+      "warnings": {
+        "usedByRequest": "Этот параметр используется в заявке.",
+        "usedByPool": "Этот параметр используется в пуле ресурсов.",
+        "usedForAllocation": "Этот параметр используется при развертывании.",
+        "dataLossPossible": "При удалении возможна потеря данных!"
+      }
+    },
+    "error": {
+      "uniqueName": "Параметр с таким именем уже создан!",
+      "uniqueTypeName": "Тип с таким именем уже создан!",
+      "uniqueIdentifier": "Индентификатор занят!",
+      "mismatchingIdentifier": "Недопустимый идентификатор"
+    },
+    "constraint": {
+      "minValueLabel": "Минимальное значение",
+      "dateValueToday": "\"сегодня\"",
+      "minDateTodayTooltip": "Минимальная дата совпадает с датой заполнения параметра",
+      "maxDateTodayTooltip": "Максимальная дата совпадает с датой заполнения параметра",
+      "maxValueLabel": "Максимальное значение",
+      "maxStringLengthLabel": "Максимальная длина",
+      "regExp": "Регулярное выражение"
+    },
+    "tooltips": {
+      "active": {
+        "true": "Можно создавать пулы ресурсов и заявки на данный тип",
+        "false": "Hельзя создавать пулы ресурсов и заявки на данный тип"
+      },
+      "quantitative": {
+        "true": "У пула данного типа есть ёмкость, которая расходуются при каждом одобрении заявки",
+        "false": "У пула данного типа нет ёмкости, которая расходуются при каждом одобрении заявки"
+      },
+      "base": "Заполняются при создании заявки",
+      "tech": "Заполняются владельцем пула при создании пула",
+      "alloc": "Заполняются при подтверждении заявки",
+      "hasUnconfirmedParam": "Подтвердите изменения параметров"
+    },
+    "overlay": {
+      "checkRemoveOpportunity": "Проверяется возможность удалить параметр...",
+      "checkCreateOpportunity": "Проверяется возможность создать параметр..."
+    }
+  },
+  "listValues": {
+    "contentLabel": "Значение ",
+    "errorText": "Повторяющиеся значения!"
+  },
+  "numberField": {
+    "minErrorText": "Значение должно быть не меньше ",
+    "maxErrorText": "Значение должно быть не больше "
+  },
+  "requestAcceptPage": {
+    "status": {
+      "SUCCESSFULLY_ACCEPTED": "Заявка утверждена",
+      "POOL_CAPACITY_IS_NOT_ENOUGH": "Ёмкости вашего пула недостаточно",
+      "ACCEPTANCE_ERROR": "Ошибка при утверждении заявки",
+      "SUCCESSFULLY_REJECTED": "Заявка отклонена",
+      "REJECTION_ERROR": "Ошибка при отклонении заявки",
+      "SUCCESSFULLY_PAUSED": "Заявка приостановлена",
+      "PAUSING_ERROR": "Ошибка во время приостановки заявки",
+      "SUCCESSFULLY_CLOSED": "Заявка завершена",
+      "CLOSING_ERROR": "Ошибка при завершении заявки",
+      "SUCCESSFULLY_RESUMED": "Заявка возобновлена",
+      "RESUMING_ERROR": "Ошибка при возобновлении заявки"
+    },
+    "fields": {
+      "type": "Тип ресурса",
+      "status": "Статус",
+      "period": "Период заявки",
+      "author": "Автор",
+      "project": "Проект",
+      "pool": "Используемый пул",
+      "creation": "Создано",
+      "responsible": "Ответственный",
+      "description": "Описание",
+      "amount": "количество",
+      "comments": "Комментарии"
+    },
+    "historyFields": {
+      "datetime": "Дата и время",
+      "status": "Новый статус",
+      "author": "Автор изменения"
+    },
+    "buttons": {
+      "accept": "утвердить",
+      "reject": "отклонить",
+      "pause": "приостановить",
+      "close": "завершить",
+      "resume": "возобновить"
+    },
+    "tooltips": {
+      "rejectButton": "Невозможно подтвердить заявку: недостаточно ресурсов. Освободите ресурсы или создайте новый пул.",
+      "history": "История заявки"
+    },
+    "headers": {
+      "request": "Заявка № {{id}}",
+      "accept": "Одобрение заявки",
+      "reject": "Отклонение заявки",
+      "history": "История заявки"
+    },
+    "label": {
+      "comment": "Комментарий",
+      "rejectReason": "Причина отклонения"
+    }
+  }
+}

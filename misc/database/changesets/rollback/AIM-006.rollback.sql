@@ -1,0 +1,1 @@
+DROP CONSTRAINT fk_category_picture;

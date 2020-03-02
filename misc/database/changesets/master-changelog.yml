@@ -1,0 +1,514 @@
+databaseChangeLog:
+    -   preConditions:
+            -   dbms:
+                    type: postgresql
+    -   changeSet:
+            id: 0
+            author: Nikita Skornyakov
+            comment: Create Schema if Required
+            preConditions:
+                -   onFail: MARK_RAN
+                -   sqlCheck:
+                        expectedResult: f
+                        sql: SELECT exists(select schema_name FROM information_schema.schemata WHERE schema_name = 'aim');
+            changes:
+                -   sqlFile:
+                        path: master/AIM-000.sql
+                        relativeToChangelogFile: true
+            rollback:
+                -   sqlFile:
+                        path: rollback/AIM-000.rollback.sql
+                        relativeToChangelogFile: true
+    -   changeSet:
+            id: 0.test
+            author: Nikita Skornyakov
+            comment: Check schema exists (sample testing data upload)
+            preConditions:
+                -   onFail: MARK_RAN
+                -   changeLogPropertyDefined:
+                        property: test
+            changes:
+                -   sqlFile:
+                        path: test/AIM-000.test.sql
+                        relativeToChangelogFile: true
+    -   changeSet:
+            id: 1
+            author: Nastya Zinchenko
+            comment: Create tables
+            changes:
+                - sqlFile:
+                        path: master/AIM-001.sql
+                        relativeToChangelogFile: true
+            rollback:
+                - sqlFile:
+                        path: rollback/AIM-001.rollback.sql
+                        relativeToChangelogFile: true
+    -   changeSet:
+             id: 2
+             author: Alexey Alimov
+             comment: Move reference from parameters to parameter constraints.
+             changes:
+                 - sqlFile:
+                        path: master/AIM-002.sql
+                        relativeToChangelogFile: true
+             rollback:
+                 - sqlFile:
+                        path: rollback/AIM-002.rollback.sql
+                        relativeToChangelogFile: true
+    -   changeSet:
+          id: 3
+          author: Alexey Alimov
+          comment: Predefine licence and VM resource types.
+          changes:
+            - sqlFile:
+                path: master/AIM-003.sql
+                relativeToChangelogFile: true
+          rollback:
+            - sqlFile:
+                path: rollback/AIM-003.rollback.sql
+                relativeToChangelogFile: true
+    -   changeSet:
+            id: 4
+            author: Sorokin Georgy
+            comment: Create first user's table
+            changes:
+                - sqlFile:
+                        path: master/AIM-004.sql
+                        relativeToChangelogFile: true
+            rollback:
+                - sqlFile:
+                        path: rollback/AIM-004.rollback.sql
+                        relativeToChangelogFile: true
+    -   changeSet:
+          id: 5
+          author: Alexey Alimov
+          comment: Set default values for pause and status_id in requests table.
+          changes:
+            - sqlFile:
+                path: master/AIM-005.sql
+                relativeToChangelogFile: true
+          rollback:
+            - sqlFile:
+                path: rollback/AIM-005.rollback.sql
+                relativeToChangelogFile: true
+    - changeSet:
+        id: 6
+        author: Poshevelya Dmitriy
+        comment: Add FK
+        changes:
+          - sqlFile:
+              path: master/AIM-006.sql
+              relativeToChangelogFile: true
+        rollback:
+          - sqlFile:
+              path: rollback/AIM-006.rollback.sql
+              relativeToChangelogFile: true
+
+    - changeSet:
+        id: 7
+        author: Alexey Alimov
+        comment: Move request state to a separate table.
+        changes:
+          - sqlFile:
+              path: master/AIM-007.sql
+              relativeToChangelogFile: true
+        rollback:
+          - sqlFile:
+              path: rollback/AIM-007.rollback.sql
+              relativeToChangelogFile: true
+    - changeSet:
+        id: 8
+        author: Sorokin Georgy
+        comment: Move employee position to the employee table.
+        changes:
+          - sqlFile:
+              path: master/AIM-008.sql
+              relativeToChangelogFile: true
+        rollback:
+          - sqlFile:
+              path: rollback/AIM-008.rollback.sql
+              relativeToChangelogFile: true
+    - changeSet:
+        id: 9
+        author: Sorokin Georgy
+        comment: insert roles
+        changes:
+          - sqlFile:
+              path: master/AIM-009.sql
+              relativeToChangelogFile: true
+        rollback:
+          - sqlFile:
+              path: rollback/AIM-009.rollback.sql
+              relativeToChangelogFile: true
+    -   changeSet:
+          id: 10
+          author: Alexey Alimov
+          comment: Insert project status values.
+          changes:
+            - sqlFile:
+                path: master/AIM-010.sql
+                relativeToChangelogFile: true
+          rollback:
+            - sqlFile:
+                path: rollback/AIM-010.rollback.sql
+                relativeToChangelogFile: true
+    - changeSet:
+        id: 11
+        author: Nastya Zinchenko
+        comment: Added a table to store parameter values ??for a specific pool.
+        changes:
+          - sqlFile:
+              path: master/AIM-011.sql
+              relativeToChangelogFile: true
+        rollback:
+          - sqlFile:
+              path: rollback/AIM-011.rollback.sql
+              relativeToChangelogFile: true
+    - changeSet:
+        id: 12
+        author: Alexey Alimov
+        comment: Change date_value type to date for pool_parameter_values and parameter_value tables.
+        changes:
+          - sqlFile:
+              path: master/AIM-012.sql
+              relativeToChangelogFile: true
+        rollback:
+          - sqlFile:
+              path: rollback/AIM-012.rollback.sql
+              relativeToChangelogFile: true
+    - changeSet:
+        id: 13
+        author: Alexey Alimov
+        comment: Rename value_list table to list_values.
+        changes:
+          - sqlFile:
+              path: master/AIM-013.sql
+              relativeToChangelogFile: true
+        rollback:
+          - sqlFile:
+              path: rollback/AIM-013.rollback.sql
+              relativeToChangelogFile: true
+    -   changeSet:
+          id: 14
+          author: Alexey Alimov
+          comment: Set default values for state_id in requests table.
+          changes:
+            - sqlFile:
+                path: master/AIM-014.sql
+                relativeToChangelogFile: true
+          rollback:
+            - sqlFile:
+                path: rollback/AIM-014.rollback.sql
+                relativeToChangelogFile: true
+    -   changeSet:
+          id: 15
+          author: Akinshin Vitaly
+          comment: Create link between master user and employee
+          changes:
+            - sqlFile:
+                path: master/AIM-015.sql
+                relativeToChangelogFile: true
+          rollback:
+            - sqlFile:
+                path: rollback/AIM-015.rollback.sql
+                relativeToChangelogFile: true
+    -   changeSet:
+          id: 16
+          author: Akinshin Vitaly
+          comment: Drop not null constraint from request project id
+          changes:
+            - sqlFile:
+                path: master/AIM-016.sql
+                relativeToChangelogFile: true
+          rollback:
+            - sqlFile:
+                path: rollback/AIM-016.rollback.sql
+                relativeToChangelogFile: true
+    - changeSet:
+          id: 17
+          author: Akinshin Vitaly
+          comment: Drop monitoring column from request table
+          changes:
+            - sqlFile:
+                path: master/AIM-017.sql
+                relativeToChangelogFile: true
+          rollback:
+            - sqlFile:
+                path: rollback/AIM-017.rollback.sql
+                relativeToChangelogFile: true
+    - changeSet:
+        id: 18
+        author: Nikita Skornyakov
+        comment: Pass username column to employee table
+        changes:
+          - sqlFile:
+              path: master/AIM-018.sql
+              relativeToChangelogFile: true
+        rollback:
+          - sqlFile:
+              path: rollback/AIM-018.rollback.sql
+              relativeToChangelogFile: true
+    - changeSet:
+        id: 19
+        author: Nikita Skornyakov
+        comment: Drop fake data introduced in AIM-003
+        changes:
+          - sqlFile:
+              path: master/AIM-019.sql
+              relativeToChangelogFile: true
+        rollback:
+          - sqlFile:
+              path: rollback/AIM-019.rollback.sql
+              relativeToChangelogFile: true
+    - changeSet:
+        id: 20
+        author: Alexey Alimov
+        comment: Add real number parameter type
+        changes:
+          - sqlFile:
+              path: master/AIM-020.sql
+              relativeToChangelogFile: true
+        rollback:
+          - sqlFile:
+              path: rollback/AIM-020.rollback.sql
+              relativeToChangelogFile: true
+    - changeSet:
+        id: 21
+        author: Alexey Alimov
+        comment: Expand parameter value constraint to include real parameter value.
+        changes:
+          - sqlFile:
+              path: master/AIM-021.sql
+              relativeToChangelogFile: true
+        rollback:
+          - sqlFile:
+              path: rollback/AIM-021.rollback.sql
+              relativeToChangelogFile: true
+    - changeSet:
+        id: 22
+        author: Alexey Alimov
+        comment: Add quantitative column to resource categories table.
+        changes:
+          - sqlFile:
+              path: master/AIM-022.sql
+              relativeToChangelogFile: true
+        rollback:
+          - sqlFile:
+              path: rollback/AIM-022.rollback.sql
+              relativeToChangelogFile: true
+    - changeSet:
+        id: 23
+        author: Alexey Alimov
+        comment: Add multivalued column to resource types and add new constraint column for it.
+        changes:
+          - sqlFile:
+              path: master/AIM-023.sql
+              relativeToChangelogFile: true
+        rollback:
+          - sqlFile:
+              path: rollback/AIM-023.rollback.sql
+              relativeToChangelogFile: true
+    - changeSet:
+        id: 24
+        author: Alexey Alimov
+        comment: Add today columns for date value constraints.
+        changes:
+          - sqlFile:
+              path: master/AIM-024.sql
+              relativeToChangelogFile: true
+        rollback:
+          - sqlFile:
+              path: rollback/AIM-024.rollback.sql
+              relativeToChangelogFile: true
+    - changeSet:
+        id: 25
+        author: Sorokin Georgy
+        comment: Add capacity column to requests table.
+        changes:
+          - sqlFile:
+              path: master/AIM-025.sql
+              relativeToChangelogFile: true
+        rollback:
+          - sqlFile:
+              path: rollback/AIM-025.rollback.sql
+              relativeToChangelogFile: true
+    - changeSet:
+        id: 26
+        author: Zinchenko Nastya
+        comment: Add table to store mail settings.
+        changes:
+          - sqlFile:
+              path: master/AIM-026.sql
+              relativeToChangelogFile: true
+        rollback:
+          - sqlFile:
+              path: rollback/AIM-026.rollback.sql
+              relativeToChangelogFile: true
+    - changeSet:
+        id: 27
+        author: Sorokin Georgy
+        comment: Add a modifier to parameters table instead 'technical' column.
+        changes:
+          - sqlFile:
+              path: master/AIM-027.sql
+              relativeToChangelogFile: true
+        rollback:
+          - sqlFile:
+              path: rollback/AIM-027.rollback.sql
+              relativeToChangelogFile: true
+    - changeSet:
+        id: 28
+        author: Zinchenko Nastya
+        comment: Change column capacity from resource pool table on total_capacity and current_capacity.
+        changes:
+          - sqlFile:
+              path: master/AIM-028.sql
+              relativeToChangelogFile: true
+        rollback:
+          - sqlFile:
+              path: rollback/AIM-028.rollback.sql
+              relativeToChangelogFile: true
+    - changeSet:
+        id: 29
+        author: Sorokin Georgy
+        comment: Add an order column to parameter table.
+        changes:
+          - sqlFile:
+              path: master/AIM-029.sql
+              relativeToChangelogFile: true
+        rollback:
+          - sqlFile:
+              path: rollback/AIM-029.rollback.sql
+              relativeToChangelogFile: true
+    - changeSet:
+        id: 30
+        author: Sorokin Georgy
+        comment: Add an order column to list_values table.
+        changes:
+          - sqlFile:
+              path: master/AIM-030.sql
+              relativeToChangelogFile: true
+        rollback:
+          - sqlFile:
+              path: rollback/AIM-030.rollback.sql
+              relativeToChangelogFile: true
+    - changeSet:
+        id: 31
+        author: Zinchenko Nastya
+        comment: Add a created_by_id column to requests table.
+        changes:
+          - sqlFile:
+              path: master/AIM-031.sql
+              relativeToChangelogFile: true
+        rollback:
+          - sqlFile:
+              path: rollback/AIM-031.rollback.sql
+              relativeToChangelogFile: true
+    - changeSet:
+        id: 32
+        author: Zinchenko Nastya
+        comment: Add a visible_to_owner column to parameter table.
+        changes:
+          - sqlFile:
+              path: master/AIM-032.sql
+              relativeToChangelogFile: true
+        rollback:
+          - sqlFile:
+              path: rollback/AIM-032.rollback.sql
+              relativeToChangelogFile: true
+    - changeSet:
+        id: 33
+        author: Sorokin Georgy
+        comment: Insert a pool creator and a pool owner to the roles table.
+        changes:
+          - sqlFile:
+              path: master/AIM-033.sql
+              relativeToChangelogFile: true
+        rollback:
+          - sqlFile:
+              path: rollback/AIM-033.rollback.sql
+              relativeToChangelogFile: true
+    - changeSet:
+        id: 34
+        author: Sorokin Georgy
+        comment: Create a request status history table and add a new request status - PAUSED instead the pause column.
+        changes:
+          - sqlFile:
+              path: master/AIM-034.sql
+              relativeToChangelogFile: true
+        rollback:
+          - sqlFile:
+              path: rollback/AIM-034.rollback.sql
+              relativeToChangelogFile: true
+    - changeSet:
+        id: 35
+        author: Sorokin Georgy
+        comment: Add a reg_exp column to the parameter_value_constraint table.
+        changes:
+          - sqlFile:
+              path: master/AIM-035.sql
+              relativeToChangelogFile: true
+        rollback:
+          - sqlFile:
+              path: rollback/AIM-035.rollback.sql
+              relativeToChangelogFile: true
+    - changeSet:
+        id: 36
+        author: Sorokin Georgy
+        comment: Add cascades to parameter-dependant tables.
+        changes:
+          - sqlFile:
+              path: master/AIM-036.sql
+              relativeToChangelogFile: true
+        rollback:
+          - sqlFile:
+              path: rollback/AIM-036.rollback.sql
+              relativeToChangelogFile: true
+    - changeSet:
+        id: 37
+        author: Sorokin Georgy
+        comment: Change a parameter identifier length and add unique constraint.
+        changes:
+          - sqlFile:
+              path: master/AIM-037.sql
+              relativeToChangelogFile: true
+        rollback:
+          - sqlFile:
+              path: rollback/AIM-037.rollback.sql
+              relativeToChangelogFile: true
+    - changeSet:
+        id: 38
+        author: Sorokin Georgy
+        comment: add a new parameter type - a reference to pool
+        changes:
+          - sqlFile:
+              path: master/AIM-038.sql
+              relativeToChangelogFile: true
+        rollback:
+          - sqlFile:
+              path: rollback/AIM-038.rollback.sql
+              relativeToChangelogFile: true
+    - changeSet:
+        id: 39
+        author: Sorokin Georgy
+        comment: Drop a multivalued column and add an order column to value tables.
+        changes:
+          - sqlFile:
+              path: master/AIM-039.sql
+              relativeToChangelogFile: true
+        rollback:
+          - sqlFile:
+              path: rollback/AIM-039.rollback.sql
+              relativeToChangelogFile: true
+    - changeSet:
+        id: 40
+        author: Sorokin Georgy
+        comment: Create table with the latest Kafka answer dates by pools.
+        changes:
+          - sqlFile:
+              path: master/AIM-040.sql
+              relativeToChangelogFile: true
+        rollback:
+          - sqlFile:
+              path: rollback/AIM-040.rollback.sql
+              relativeToChangelogFile: true

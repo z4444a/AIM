@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Alert should render correctly 1`] = `
+<WithStyles(SnackbarContent)
+  aria-describedby="client-snackbar"
+  className="info container"
+  message={
+    <span
+      className="message"
+      id="client-snackbar"
+    >
+      <pure(InfoIcon)
+        className="icon iconVariant"
+      />
+      Message
+    </span>
+  }
+/>
+`;

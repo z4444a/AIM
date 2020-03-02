@@ -1,0 +1,23 @@
+dependencies {
+  implementation project(":repository")
+
+  compileClasspath "javax.servlet:javax.servlet-api:4.0.1"
+  compileClasspath "com.fasterxml.jackson.core:jackson-databind:$jackson_ver"
+
+  implementation "org.mapstruct:mapstruct:$mapstruct_ver"
+  implementation "org.springframework.security:spring-security-web:$spring_security_ver"
+  implementation "org.springframework.security:spring-security-config:$spring_security_ver"
+  implementation "org.springframework.security:spring-security-ldap:$spring_security_ver"
+  implementation "org.springframework.boot:spring-boot-starter:$springboot_ver"
+  implementation "io.jsonwebtoken:jjwt-api:$jjwt_ver"
+
+  annotationProcessor "org.mapstruct:mapstruct-processor:$mapstruct_ver"
+  runtimeOnly "io.jsonwebtoken:jjwt-impl:$jjwt_ver"
+  runtimeOnly "io.jsonwebtoken:jjwt-jackson:$jjwt_ver"
+}
+compileJava {
+  options.compilerArgs += [
+      '-Amapstruct.defaultComponentModel=spring',
+      '-Amapstruct.unmappedTargetPolicy=ERROR'
+  ]
+}

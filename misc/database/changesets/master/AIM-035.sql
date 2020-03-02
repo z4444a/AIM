@@ -1,0 +1,1 @@
+ALTER TABLE aim.parameter_value_constraint ADD COLUMN reg_exp varchar(1024);

@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SideBar should render correctly 1`] = `
+<WithStyles(Drawer)
+  className="drawer drawerOpen"
+  classes={
+    Object {
+      "paper": "drawerOpen",
+    }
+  }
+  open={true}
+  variant="permanent"
+>
+  <div
+    className="toolbar"
+  />
+  <Connect(withI18nextTranslation(MainMenu)) />
+</WithStyles(Drawer)>
+`;

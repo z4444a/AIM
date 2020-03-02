@@ -1,0 +1,51 @@
+daemon off;
+worker_processes 1;
+
+events {
+  worker_connections 1024;
+}
+
+http {
+  include mime.types;
+  default_type application/json;
+  client_max_body_size 100m;
+
+  sendfile on;
+  keepalive_timeout 7200;
+
+  gzip on;
+
+  server {
+    listen 81;
+    server_name localhost;
+    set $root_path '/home/nikita/IdeaProjects/AIM/frontend/build';
+
+    location / {
+      index index.html;
+      root $root_path;
+      autoindex on;
+      try_files $uri $uri/ /index.html?$uri;
+    }
+
+    location /api {
+      proxy_pass  http://localhost:8080/api;
+      proxy_connect_timeout 15s;
+
+      real_ip_header    X-Forwarded-For;
+      real_ip_recursive off;
+    }
+
+    location ~ ^.*\.(json|html|js|jpg|jpeg|gif|png|ico|css|xls|csv|ttf|svg|eot|woff)$ {
+      root $root_path;
+    }
+
+    if ($request_uri ~* ^.*\.git.*$) {
+      return 404;
+    }
+
+    location ~ /\.ht {
+      deny all;
+    }
+  }
+}
+

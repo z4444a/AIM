@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ResourceTypesPage should render correctly 1`] = `
+<withI18nextTranslation(WithStyles(AimDataGrid))
+  columns={
+    Array [
+      Object {
+        "label": "resourceTypePage.grid.columns.id_i18n",
+        "name": "id",
+      },
+      Object {
+        "label": "resourceTypePage.grid.columns.name_i18n",
+        "name": "name",
+      },
+      Object {
+        "label": "resourceTypePage.grid.columns.description_i18n",
+        "name": "description",
+      },
+      Object {
+        "label": "resourceTypePage.grid.columns.pools_i18n",
+        "name": "numberOfPools",
+      },
+      Object {
+        "label": "resourceTypePage.grid.columns.requests_i18n",
+        "name": "numberOfRequests",
+        "options": Object {
+          "customBodyRender": [Function],
+          "sort": false,
+        },
+      },
+      Object {
+        "label": "resourceTypePage.grid.columns.poolParameters_i18n",
+        "name": "parameters",
+        "options": Object {
+          "customBodyRender": [Function],
+          "sort": false,
+        },
+      },
+      Object {
+        "label": "resourceTypePage.grid.columns.requestParameters_i18n",
+        "name": "parameters",
+        "options": Object {
+          "customBodyRender": [Function],
+          "sort": false,
+        },
+      },
+      Object {
+        "label": "resourceTypePage.grid.columns.allocationParameters_i18n",
+        "name": "parameters",
+        "options": Object {
+          "customBodyRender": [Function],
+          "sort": false,
+        },
+      },
+      Object {
+        "label": " ",
+        "name": "id",
+        "options": Object {
+          "customBodyRender": [Function],
+        },
+      },
+    ]
+  }
+  customToolbar={[Function]}
+  data={Array []}
+  filterValues={Object {}}
+  onChangePage={[Function]}
+  onChangeRowsPerPage={[Function]}
+  onColumnSortChange={[Function]}
+  onFilterChange={[Function]}
+  pageTitle="resourceTypePage.header_i18n"
+  renderCustomFilterCmp={[Function]}
+  rowsPerPage={10}
+  sort={
+    Object {
+      "direction": "asc",
+      "sortBy": "name",
+    }
+  }
+  toggleFilterPanel={[Function]}
+  totalPageCount={10}
+/>
+`;

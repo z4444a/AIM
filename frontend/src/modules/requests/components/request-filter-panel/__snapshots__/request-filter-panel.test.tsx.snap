@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RequestFilterPanel should render correctly 1`] = `
+<div
+  className="container"
+>
+  <WithStyles(AimAutocomplete)
+    getSuggestions={[Function]}
+    label="createRequestPage.form.resourceType_i18n"
+    onValueChange={[Function]}
+    selectedItem={
+      Object {
+        "key": "0",
+        "value": "",
+      }
+    }
+  />
+  <TextField
+    fullWidth={true}
+    label="requestPage.grid.columns.description_i18n"
+    onChange={[Function]}
+    required={false}
+    select={false}
+    value=""
+    variant="standard"
+  />
+  <WithStyles(AimAutocomplete)
+    getSuggestions={[Function]}
+    label="requestPage.grid.columns.status_i18n"
+    onValueChange={[Function]}
+    selectedItem={
+      Object {
+        "key": "0",
+        "value": "",
+      }
+    }
+  />
+  <div />
+</div>
+`;

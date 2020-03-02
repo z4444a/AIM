@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginForm should render correctly 1`] = `
+<div
+  className="container"
+>
+  <WithStyles(CssBaseline) />
+  <div
+    className="paper"
+  >
+    <WithStyles(Card)
+      className="card"
+    >
+      <WithStyles(Avatar)
+        className="avatar"
+      >
+        <pure(LockOutlinedIcon) />
+      </WithStyles(Avatar)>
+      <WithStyles(Typography)
+        classes={
+          Object {
+            "root": "greeting",
+          }
+        }
+        component="h1"
+        variant="h6"
+      >
+        loginPage.form.header_i18n
+      </WithStyles(Typography)>
+      <form
+        className="form"
+        noValidate={true}
+      >
+        <TextField
+          autoFocus={true}
+          error={false}
+          fullWidth={true}
+          id="login"
+          label="loginPage.form.loginFieldLabel_i18n"
+          margin="dense"
+          onChange={[Function]}
+          onKeyPress={[Function]}
+          required={true}
+          select={false}
+          value=""
+          variant="outlined"
+        />
+        <TextField
+          InputProps={
+            Object {
+              "endAdornment": <WithStyles(WithFormControlContext(InputAdornment))
+                position="end"
+              >
+                <WithStyles(IconButton)
+                  aria-label="Toggle password visibility"
+                  onClick={[Function]}
+                  tabIndex={-1}
+                >
+                  <pure(VisibilityIcon) />
+                </WithStyles(IconButton)>
+              </WithStyles(WithFormControlContext(InputAdornment))>,
+            }
+          }
+          error={false}
+          fullWidth={true}
+          id="password"
+          label="loginPage.form.pwdFieldLabel_i18n"
+          margin="dense"
+          onChange={[Function]}
+          onKeyPress={[Function]}
+          required={true}
+          select={false}
+          type="password"
+          value=""
+          variant="outlined"
+        />
+        <WithStyles(Button)
+          className="submit"
+          fullWidth={true}
+          onClick={[Function]}
+          variant="contained"
+        >
+          loginPage.form.submitBtn_i18n
+        </WithStyles(Button)>
+      </form>
+    </WithStyles(Card)>
+  </div>
+</div>
+`;

@@ -1,0 +1,12 @@
+dependencies {
+  implementation "org.postgresql:postgresql:$postgre_ver"
+  implementation "org.hibernate:hibernate-core:$hibernate_orm_ver"
+  
+  apiElements "org.springframework.data:spring-data-commons:$spring_data_ver"
+  apiElements "org.springframework.data:spring-data-jpa:$spring_data_ver"
+  apiElements "javax.persistence:javax.persistence-api:2.2"
+  
+  implementation "org.springframework.boot:spring-boot-starter-data-jpa:$springboot_ver"
+}
+compileJava.options.encoding = 'UTF-8'
+compileTestJava.options.encoding = 'UTF-8'

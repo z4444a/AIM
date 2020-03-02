@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppHeader should render correctly 1`] = `
+<WithStyles(AppBar)
+  className="appBar"
+  position="fixed"
+>
+  <WithStyles(Toolbar)>
+    <WithStyles(IconButton)
+      aria-label="Open drawer"
+      className="menuButton"
+      color="inherit"
+      onClick={[Function]}
+    >
+      <pure(MenuIcon) />
+    </WithStyles(IconButton)>
+    <div
+      className="emptySpace"
+    />
+    <h4>
+      userName
+    </h4>
+    <WithStyles(IconButton)
+      onClick={[Function]}
+    >
+      <pure(ExitToAppIcon) />
+    </WithStyles(IconButton)>
+  </WithStyles(Toolbar)>
+</WithStyles(AppBar)>
+`;

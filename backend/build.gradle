@@ -1,0 +1,226 @@
+buildscript {
+  ext {
+    spotbugs_tool_ver = "4.0.0-beta3"
+    jaxb_ver = "2.3.0"
+  }
+
+  repositories {
+    maven {
+      url "https://plugins.gradle.org/m2/"
+    }
+  }
+  dependencies {
+    classpath "gradle.plugin.com.github.spotbugs:spotbugs-gradle-plugin:2.0.0"
+  }
+}
+
+import com.bmuschko.gradle.docker.tasks.image.Dockerfile
+
+plugins {
+  id 'java'
+  id "org.springframework.boot" version "2.1.2.RELEASE"
+  id 'com.bmuschko.docker-spring-boot-application' version '4.10.0'
+}
+
+
+subprojects {
+  apply {
+    plugin 'java-library'
+  }
+}
+
+
+allprojects {
+  apply {
+    plugin 'jacoco'
+    plugin 'idea'
+  }
+
+  ext { //provides correct versions for pmd and compiler transitive dependencies to generate no warnings
+    //logging
+    slf4j_ver = "1.7.25"
+    logback_ver = "1.2.3"
+
+    //testing
+    junit_ver = "5.4.0"
+    mockito_ver = "2.24.0"
+
+    //apt
+    mapstruct_ver = '1.3.0.Final'
+
+    //spring
+    spring_security_ver = "5.1.6.RELEASE"
+    spring_ver = "5.1.9.RELEASE"
+    spring_data_ver = "2.1.10.RELEASE"
+    springboot_ver = "2.1.7.RELEASE"
+
+    //db
+    postgre_ver = '42.2.6'
+    hibernate_orm_ver = "5.4.1.Final"
+    liquibase_ver = "3.6.2"
+
+    javax_http_ver = "4.0.1"
+    javax_validation_ver = "2.0.1.Final"
+    javax_mail_ver = "1.6.2"
+
+    snakeyaml_ver = "1.23"
+    hibernate_validator_ver = "6.0.13.Final"
+    aspectj_ver = "1.9.2"
+    jjwt_ver = '0.10.5'
+    springfox_ver = "2.9.2"
+    jaxb_ver = "2.3.0"
+    jackson_ver = "2.9.8"
+    springfox_ver = "2.9.2"
+
+    freemarker_ver = "2.3.29"
+    commons_lang3_ver = "3.0"
+  }
+
+
+  version = "0.1.0"
+  group = "ru.relex"
+  sourceCompatibility = JavaVersion.VERSION_11
+  targetCompatibility = JavaVersion.VERSION_11
+
+  repositories {
+    mavenCentral()
+    jcenter()
+  }
+
+  jacoco {
+    toolVersion = "0.8.4"
+  }
+
+  jacocoTestReport {
+    reports {
+      xml.enabled true
+      csv.enabled false
+    }
+    afterEvaluate {
+      getClassDirectories().from = files(classDirectories.files.collect {
+        fileTree(dir: it, exclude: ['**/model/**'])
+      })
+    }
+  }
+
+  test.finalizedBy jacocoTestReport
+
+  configurations.all {
+    resolutionStrategy {
+      dependencySubstitution {
+        substitute module('commons-logging:commons-logging') with module("org.slf4j:jcl-over-slf4j:$slf4j_ver")
+        substitute module('org.codehaus.woodstox:woodstox-core-asl') with module("com.fasterxml.woodstox:woodstox-core:5.0.3")
+      }
+      force "com.google.guava:guava:20.0"
+    }
+
+    exclude group: "org.jboss.spec.javax.transaction", module: "jboss-transaction-api_1.2_spec"
+    exclude group: "org.hibernate.javax.persistence", module: "hibernate-jpa-2.0-api"
+  }
+
+  configurations.runtime {
+    exclude group: "com.google.code.findbugs"
+  }
+
+  dependencies {
+    implementation "org.slf4j:slf4j-api:$slf4j_ver"
+
+    testImplementation "org.junit.jupiter:junit-jupiter-api:$junit_ver"
+    testImplementation "org.junit.jupiter:junit-jupiter-params:$junit_ver"
+    testImplementation "org.mockito:mockito-core:$mockito_ver"
+    testImplementation "org.springframework.boot:spring-boot-test:$springboot_ver"
+    testImplementation "org.springframework:spring-test:$spring_ver"
+
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junit_ver"
+  }
+
+  test {
+    useJUnitPlatform()
+    ignoreFailures = true
+  }
+}
+
+apply from: 'checkstyle.gradle'
+
+allprojects.each {
+  if (it.name != 'commons') {
+    it.dependencies {
+      implementation project(":commons")
+      implementation "org.springframework:spring-context:$spring_ver"
+
+      annotationProcessor "org.springframework.boot:spring-boot-configuration-processor:$springboot_ver"
+    }
+  }
+}
+
+dependencies {
+  runtimeOnly "ch.qos.logback:logback-classic:$logback_ver"
+  implementation("org.springframework.boot:spring-boot-starter-web:$springboot_ver") {
+    exclude group: "org.springframework.boot", module: "spring-boot-starter-tomcat"
+  }
+  compileOnly "javax.servlet:javax.servlet-api:$javax_http_ver"
+  runtimeOnly "org.springframework.boot:spring-boot-starter-undertow:$springboot_ver"
+  implementation "io.springfox:springfox-swagger2:$springfox_ver"
+  implementation "io.springfox:springfox-swagger-ui:$springfox_ver"
+
+  implementation "org.springframework.security:spring-security-core:$spring_security_ver"
+}
+
+
+springBoot {
+  mainClassName = 'ru.relex.aim.rest.AimApp'
+}
+
+bootJar {
+  launchScript()
+}
+
+task mergeJacocoReports(type: JacocoMerge) {
+  executionData = project.fileTree(dir: '.', include: '**/build/jacoco/test.exec')
+  destinationFile = file("${rootProject.buildDir}/reports/jacoco/AggregatedCoverage.exec")
+}
+
+
+task makeDockerfile(type: Dockerfile) {
+  from "amazoncorretto:11"
+  destFile = file("build/libs/Dockerfile")
+  addFile "${rootProject.name}-${rootProject.version}.jar", "aim-backend.jar"
+  entryPoint "java"
+  exposePort 8080
+  defaultCommand "-jar", "aim-backend.jar"
+
+  onlyIf { findProperty("CI") != null && findProperty("dev") == null }
+}
+
+
+task makeDockerfileDev(type: Dockerfile) {
+  from "amazoncorretto:11"
+  destFile = file("build/libs/Dockerfile")
+  addFile "${rootProject.name}-${rootProject.version}.jar", "aim-backend.jar"
+  entryPoint "java"
+  exposePort 8080
+  defaultCommand "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005", "-jar", "aim-backend.jar"
+
+  onlyIf { findProperty("CI") != null && findProperty("dev") != null }
+}
+
+bootJar.finalizedBy makeDockerfile
+bootJar.finalizedBy makeDockerfileDev
+
+allprojects {
+  mergeJacocoReports.dependsOn jacocoTestCoverageVerification
+}
+
+build.dependsOn mergeJacocoReports
+
+dependencies {
+  implementation project(":service")
+  implementation project(":security")
+  implementation "com.fasterxml.jackson.core:jackson-annotations:$jackson_ver"
+
+  pmd project(":repository")
+
+  compileOnly "javax.servlet:javax.servlet-api:4.0.1" // required for spotbugs
+
+  spotbugsPlugins "com.h3xstream.findsecbugs:findsecbugs-plugin:+"
+}

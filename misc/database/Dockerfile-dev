@@ -1,0 +1,3 @@
+FROM gradle:5.5-jre11
+
+CMD ["gradle", "update", "-Purl=${DB_URL}", "-Ppwd=${DB_PASSWORD}", "-Ppwd=${DB_USERNAME}", "-Dorg.gradle.daemon=false"]

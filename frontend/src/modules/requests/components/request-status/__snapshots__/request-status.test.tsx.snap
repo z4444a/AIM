@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RequestStatus should render correctly 1`] = `
+<div
+  className="container"
+>
+  <pure(Brightness1Icon)
+    className="newReq"
+  />
+  requestPage.status.new_i18n
+</div>
+`;
